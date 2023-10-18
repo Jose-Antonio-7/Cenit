@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="Cenit.TabbedMenu"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Cenit"
+    Title="TabbedMenu">
+    <!--<ContentPage Title="prueba1">
+        <Label Text="prueba1"/>
+    </ContentPage>
+    <ContentPage Title="prueba2">
+        <Label Text="prueba2"/>
+    </ContentPage>-->
+    <local:CalculadoraSimple Title="Calculadora" />
+    <local:ColeccionCalculos Title="Registros" />
+
+
+</TabbedPage>

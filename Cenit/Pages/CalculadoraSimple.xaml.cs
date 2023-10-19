@@ -1,4 +1,5 @@
-﻿using Microsoft.Maui.Controls;
+﻿using Cenit.Models;
+using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics.Text;
 
 namespace Cenit
@@ -9,28 +10,32 @@ namespace Cenit
         public CalculadoraSimple()
         {
             InitializeComponent();
+            //BindingContext = App.calculos;
             //Aplication.Curretn
         }
 
         private void CalcularPaneles(object sender, EventArgs e)
         {
             //ToDo: Validacion de valores
-            var consumo = Int32.Parse(Consumo.Text.Trim());
-            var hsp = double.Parse(HSP.Text.Trim());
-            var voltaje = Int32.Parse(VoltajePanel.Text.Trim());
-            var factorPerdida = 1.3;
 
-            var consumoDiario = ((consumo * 1000) / 60) * factorPerdida;
+            CalculoPaneles calculo = new CalculoPaneles { 
+                ConsumoElectrico = Int32.Parse(Consumo.Text.Trim()), 
+                DuracionHoraSolarPico = double.Parse(HSP.Text.Trim()), 
+                VoltajePanel = Int32.Parse(VoltajePanel.Text.Trim())
+            };
 
-            var produccionXPanel = hsp * voltaje;
+            var consumoDiario = ((calculo.ConsumoElectrico * 1000) / 60) * calculo.FactorPerdida;
 
-            var paneles = Math.Ceiling(consumoDiario / produccionXPanel);
+            var produccionXPanel = calculo.DuracionHoraSolarPico * calculo.VoltajePanel;
+
+            calculo.CantidadPaneles = (int)Math.Ceiling(consumoDiario / produccionXPanel);
 
             //ToDo: Agregar campo precio de panales
             //ToDo: Que el factor perdida pueda modificarse pero inicie con valor de 1.3
             //ToDo: Campo de nombre de cliente o proyecto
 
-            Resultado.Text = $"{paneles} Paneles solares de {voltaje} Wats";
+            Resultado.Text = $"{calculo.CantidadPaneles} Paneles solares de {calculo.VoltajePanel} Wats";
+            App.calculos.ListaCalculos.Add(calculo);
         }
     }
 }

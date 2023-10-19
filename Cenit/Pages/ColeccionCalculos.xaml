@@ -4,80 +4,104 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="ColeccionCalculos">
-    <CollectionView
+
+    <!--<SwipeView>-->
+
+
+
+        <CollectionView
         x:Name="CollectionViewCalculos"
         EmptyView="Sin datos registrados"
         SelectionMode="Single">
 
 
-        <CollectionView.Header>
-            <VerticalStackLayout Padding="2" BackgroundColor="#D4E6F1">
-                <Label
+            <CollectionView.Header>
+                <VerticalStackLayout Padding="2" BackgroundColor="#D4E6F1">
+                    <Label
                     FontAttributes="Bold"
                     FontSize="Large"
                     HorizontalOptions="Center"
                     Text="Calculos de Paneles" />
-            </VerticalStackLayout>
-        </CollectionView.Header>
+                </VerticalStackLayout>
+            </CollectionView.Header>
 
 
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Frame Margin="10">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width=".2*" />
-                            <ColumnDefinition Width=".2*" />
-                            <ColumnDefinition Width=".4*" />
-                        </Grid.ColumnDefinitions>
+            <CollectionView.ItemTemplate>
+                
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.LeftItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Favorite"
+                           IconImageSource="favorite.png"
+                           BackgroundColor="LightGreen"/>
+                                <SwipeItem Text="Delete"
+                           IconImageSource="delete.png"
+                           BackgroundColor="LightPink"/>
+                            </SwipeItems>
+                        </SwipeView.LeftItems>
 
-                        <VerticalStackLayout Grid.Column="0">
-                            <Label
-                                Grid.Row="0"
-                                Grid.Column="0"
-                                FontAttributes="Bold"
-                                Text="Consumo Electrico:"
-                                VerticalOptions="Center" />
-                            <Label
-                                Grid.Row="1"
-                                Grid.Column="0"
-                                FontAttributes="Bold"
-                                Text="{Binding ConsumoElectrico, StringFormat='{0}W'}"
-                                VerticalOptions="Center" />
-                        </VerticalStackLayout>
+                        <Frame Margin="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".2*" />
+                                    <ColumnDefinition Width=".2*" />
+                                    <ColumnDefinition Width=".4*" />
+                                </Grid.ColumnDefinitions>
 
-                        <VerticalStackLayout Grid.Column="1">
-                            <Label
-                                Grid.Row="0"
-                                Grid.Column="1"
-                                FontAttributes="Bold"
-                                Text="Duracion HSP:"
-                                VerticalOptions="Center" />
-                            <Label
-                                Grid.Row="0"
-                                Grid.Column="1"
-                                FontAttributes="Bold"
-                                Text="{Binding DuracionHoraSolarPico, StringFormat='{0} Horas'}"
-                                VerticalOptions="Center" />
-                        </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    FontAttributes="Bold"
+                                    Text="Consumo Electrico:"
+                                    VerticalOptions="Center" />
+                                    <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    FontAttributes="Bold"
+                                    Text="{Binding ConsumoElectrico, StringFormat='{0}W'}"
+                                    VerticalOptions="Center" />
+                                </VerticalStackLayout>
 
-                        <VerticalStackLayout
-                            Grid.Column="2"
-                            Padding="5"
-                            VerticalOptions="Center">
-                            <Label
-                                Grid.Row="0"
-                                FontAttributes="Bold"
-                                Text="{Binding VoltajePanel, StringFormat='Voltaje por Panel: {0}V'}" />
-                            <Label
-                                Grid.Row="1"
-                                FontAttributes="Bold"
-                                Text="{Binding CantidadPaneles, StringFormat='Numero de paneles: {0}'}" />
-                        </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="1">
+                                    <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    Text="Duracion HSP:"
+                                    VerticalOptions="Center" />
+                                    <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    Text="{Binding DuracionHoraSolarPico, StringFormat='{0} Horas'}"
+                                    VerticalOptions="Center" />
+                                </VerticalStackLayout>
 
-                    </Grid>
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+                                <VerticalStackLayout
+                                Grid.Column="2"
+                                Padding="5"
+                                VerticalOptions="Center">
+                                    <Label
+                                    Grid.Row="0"
+                                    FontAttributes="Bold"
+                                    Text="{Binding VoltajePanel, StringFormat='Voltaje por Panel: {0}V'}" />
+                                    <Label
+                                    Grid.Row="1"
+                                    FontAttributes="Bold"
+                                    Text="{Binding CantidadPaneles, StringFormat='Numero de paneles: {0}'}" />
+                                </VerticalStackLayout>
+
+                            </Grid>
+                        </Frame>
+
+                    </SwipeView>
+                   
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+    <!--</SwipeView>-->
+    
 </ContentPage>

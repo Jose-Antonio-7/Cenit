@@ -1,5 +1,5 @@
 ﻿
-using Cenit.Models;
+using Cenit.Models.View_Models;
 using System.Collections.ObjectModel;
 
 namespace Cenit

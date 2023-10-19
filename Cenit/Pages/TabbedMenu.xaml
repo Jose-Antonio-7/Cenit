@@ -5,12 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Cenit"
     Title="TabbedMenu">
-    <!--<ContentPage Title="prueba1">
-        <Label Text="prueba1"/>
-    </ContentPage>
-    <ContentPage Title="prueba2">
-        <Label Text="prueba2"/>
-    </ContentPage>-->
+
     <local:CalculadoraSimple Title="Calculadora" />
     <local:ColeccionCalculos Title="Registros" />
 

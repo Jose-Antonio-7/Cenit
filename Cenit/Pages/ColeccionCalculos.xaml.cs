@@ -11,7 +11,7 @@ public partial class ColeccionCalculos : ContentPage
     public ColeccionCalculos()
 	{
 		InitializeComponent();
-        //BindingContext = App.calculos;
+        //BindingContext = App.calculos.ListaCalculos;
         IniciarLista();
 
         CollectionViewCalculos.ItemsSource = App.calculos.ListaCalculos;

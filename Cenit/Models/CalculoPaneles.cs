@@ -10,6 +10,7 @@ namespace Cenit.Models
     {
         //public int Id { get; set; }
         //public string NombreCliente { get; set; }
+
         public int ConsumoElectrico { get; set; }
         public double DuracionHoraSolarPico { get; set; }
         public int VoltajePanel { get; set; }

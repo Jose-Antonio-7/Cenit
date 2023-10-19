@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cenit.Models
+namespace Cenit.Models.View_Models
 {
     public partial class CalculoPanelesListViewModel : ObservableObject
     {
@@ -20,7 +20,7 @@ namespace Cenit.Models
         [RelayCommand]
         private void Add()
         {
-            ListaCalculos.Add(calculo);
+            ListaCalculos.Add(Calculo);
             Calculo = new();
         }
     }
